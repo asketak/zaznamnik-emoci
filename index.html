@@ -31,43 +31,117 @@
   
 </head>
 
+<!-- Otazky, na ktere se ma dotazovat
+  Kolik bylo hodin? 	
+  Co jsem dělal? 	
+  Kdo byl u toho se mnou?
+  Jakou jsem zažíval emoci? 
+  Ideálně výběr z několika možností (strach, vztek, radost, smutek, úzkost, vztek na sebe, beznaděj, klid, pohoda, naděje…),
+  plus možnost napsat vlastní. Aby bylo možné vybrat více možností. 	
+  Celková nálada na škále -5 (Extrémně špatná nálada) až +5 (Vynikající, výjimečná nálada). Pokud by to bylo možné, tak z téhle kolonky graf	
+  Jaké myšlenky mě napadaly?	
+  Co jsem vnímal v těle? 
+-->
+
 <body>
-  <header>
-    <h1>Záznamník</h1>
-    <!-- <button class="add-button">Instaluj?</button> -->
-    <form id="new-task-form">
-      <label for="emoce">Cítím se</label>
-
-      <select name="intenzita" id="intenzita">
-        <option value="Trochu">Trochu</option>
-        <option value="Prumerne">Prumerne</option>
-        <option value="Velmi">Velmi</option>
-      </select>
-
-      <input type="time" id="time" name="time" >
-       
-
-      <select name="emoce" id="emoce">
-        <option value="Štastný">Štastný</option>
-        <option value="Smutný">Smutný</option>
-        <option value="Plný naděje">Plný naděje</option>
-        <option value="Pesimismticky">Pesimismticky</option>
-      </select>
-
-      <label for="emoce">Protože </label>
-      <input type="text" name="new-task-input" id="new-task-input" placeholder="Jak se teď cítíš?" />
-      <input type="submit" id="new-task-submit" value="Zaznamenej" />
-    </form>
-  </header>
-  <main>
-    <section class="task-list">
-      <h2>Minulé záznamy</h2>
-      <div id="tasks">
+  <h1>Záznamník</h1>
+  <!-- <button class="add-button">Instaluj?</button> -->
+  <form id="new-task-form">
+    V
+    <input type="time" id="time" name="time" >
+    jsem dělal 
+    <input type="text" name="new-task-input" id="new-task-input" placeholder="" />
+    s
+    <input type="text" name="new-task-input" id="new-task-input" placeholder="nikým" />
+    <fieldset>
+      <legend> a cítil/a u toho</legend>
+      
+      <div>
+        
+        <input type="checkbox" id="Strach"  name="Emoce" value="Strach">
+        <label for="Strach">Strach</label>
       </div>
-    </section>
-  </main>
+      <div>
+        <input type="checkbox" id="Vztek"  name="Emoce" value="Vztek">
+        <label for="Vztek">Vztek</label>
+      </div>
+      <div>
+        <input type="checkbox" id="Radost"  name="Emoce" value="Radost">
+        <label for="Radost">Radost</label>
+      </div>
+      <div>
+        <input type="checkbox" id="Smutek"  name="Emoce" value="Smutek">
+        <label for="Smutek">Smutek</label>
+      </div>
+      <div>
+        <input type="checkbox" id="Úzkost"  name="Emoce" value="Úzkost">
+        <label for="Úzkost">Úzkost</label>
+      </div>
+      <div>
+        <input type="checkbox" id="Vzteknasebe"  name="Emoce" value="Vztek na sebe">
+        <label for="Vztek na sebe">Vztek na sebe</label>
+      </div>
+      <div>
+        <input type="checkbox" id="Beznaděj"  name="Emoce" value="Beznaděj">
+        <label for="Beznaděj">Beznaděj</label>
+      </div>
+      <div>
+        <input type="checkbox" id="Klid"  name="Emoce" value="Klid">
+        <label for="Klid">Klid</label>
+      </div>
+      <div>
+        <input type="checkbox" id="Pohoda"  name="Emoce" value="Pohoda">
+        <label for="Pohoda">Pohoda</label>
+      </div>
+      <div>
+        <input type="checkbox" id="Naději"  name="Emoce" value="Naději">
+        <label for="Naději">Naději</label>
+      </div>
+      <div>
+        <input type="text" id="Ostatní"  name="Emoce" value="">
+        <label for="Naději">Něco jiného</label>
+      </div>
+      
+      <div>
+    </fieldset>
+    <fieldset class="rating">
+      a cítil/a u toho
+      <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+      <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+      <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+      <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+      <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+      <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+      <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+      <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+      <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+      <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+    </fieldset>
+  </div>
+  <br>
+  <br>
   
-  <script src="index.js"></script>
+  <div>
+    <label for="emoce">Napadaly mě </label>
+    <input type="text" name="new-task-input" id="new-task-input" placeholder="myšlenky" />
+  </div>
+  <div>
+    <label for="emoce">V těle jsem cítil </label>
+    <input type="text" name="new-task-input" id="new-task-input" placeholder="" />
+  </div>
+  <div>
+    <input type="submit" id="new-task-submit" value="Zaznamenej" />
+  </div>
+</form>
+<main>
+  <section class="task-list">
+    <h2>Minulé záznamy</h2>
+    <div id="tasks">
+    </div>
+  </section>
+</main>
+
+<script src="index.js"></script>
 </body>
 
 </html>
