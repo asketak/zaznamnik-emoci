@@ -1,0 +1,73 @@
+<script src="https://unpkg.com/dexie/dist/dexie.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <script>
+    // Check that service workers are supported
+    if ("serviceWorker" in navigator) {
+      // Use the window load event to keep the page load performant
+      
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js");
+      });
+    }
+  </script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Záznamník</title>
+  <link rel="stylesheet" href="index.css" />
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  
+  
+</head>
+
+<body>
+  <header>
+    <h1>Záznamník</h1>
+    <!-- <button class="add-button">Instaluj?</button> -->
+    <form id="new-task-form">
+      <label for="emoce">Cítím se</label>
+
+      <select name="intenzita" id="intenzita">
+        <option value="Trochu">Trochu</option>
+        <option value="Prumerne">Prumerne</option>
+        <option value="Velmi">Velmi</option>
+      </select>
+
+      <input type="time" id="time" name="time" >
+       
+
+      <select name="emoce" id="emoce">
+        <option value="Štastný">Štastný</option>
+        <option value="Smutný">Smutný</option>
+        <option value="Plný naděje">Plný naděje</option>
+        <option value="Pesimismticky">Pesimismticky</option>
+      </select>
+
+      <label for="emoce">Protože </label>
+      <input type="text" name="new-task-input" id="new-task-input" placeholder="Jak se teď cítíš?" />
+      <input type="submit" id="new-task-submit" value="Zaznamenej" />
+    </form>
+  </header>
+  <main>
+    <section class="task-list">
+      <h2>Minulé záznamy</h2>
+      <div id="tasks">
+      </div>
+    </section>
+  </main>
+  
+  <script src="index.js"></script>
+</body>
+
+</html>

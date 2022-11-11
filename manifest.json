@@ -1,0 +1,18 @@
+{
+  "name": "Zaznamnik emoci",
+  "short_name": "Zaznamnik emoci",
+  "description": "",
+  "icons": [
+    {
+      "src": "feeling.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF",
+  "start_url": "/index.html",
+  "display": "fullscreen",
+  "orientation": "portrait"
+}
