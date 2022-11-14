@@ -5,13 +5,16 @@ db.version(1).stores({ todos: "++id, today, time, task, with, emotions, rating, 
 
 const form = document.querySelector("#new-task-form");
 
-  const time = document.querySelector("#time");
-  const task = document.querySelector("#task");
-  const withh = document.querySelector("#with");
-  const emoce = document.querySelector("#emoce");
-  const rating = document.querySelector("#rating");
-  const thoughts = document.querySelector("#thoughts");
-  const bodyfeel = document.querySelector("#bodyfeel");
+const time = document.querySelector("#time");
+const task = document.querySelector("#task");
+const withh = document.querySelector("#with");
+const emoce = document.querySelector("#emoce");
+const rating = document.querySelector("#rating");
+const thoughts = document.querySelector("#thoughts");
+const bodyfeel = document.querySelector("#bodyfeel");
+
+
+
 
 const list_el = document.querySelector("#tasks");
 
@@ -23,16 +26,25 @@ form.onsubmit = async (event) => {
   const timev = time.value;
   const taskv = task.value;
   const withhv = withh.value;
-  const emocev = emoce.value;
-  const ratingv = rating.value;
   const thoughtsv = thoughts.value;
   const bodyfeelv = bodyfeel.value;
-
-
   
+  // const emocev = emoce.value;
+  // const ratingv = rating.value;
+  
+  let emoc = document.querySelectorAll("input[type=checkbox]:checked");
+  let emocev = ""
+  emoc.forEach((v) => {
+    if(v.checked) {
+      emocev += " "+v.value
+    }
+    
+  });
+  
+  const ratingv = document.querySelector("input[type=radio]:checked").value;
   
   var current = new Date();
-  const today = current.getDate().toString() + ":" + (current.getMonth()+1).toString()
+  const today = current.getDate().toString() + "." + (current.getMonth()+1).toString()
   await db.todos.add({today,  timev, taskv, withhv, emocev,ratingv,thoughtsv, bodyfeelv });
   await getTodos();
   // form.reset();
@@ -43,25 +55,40 @@ form.onsubmit = async (event) => {
 // Cítil jsem se ${todo.time} ${todo.task} ${todo.time.toLocaleDateString()} ${todo.today.toLocaleTimeString()}..
 const getTodos = async () => {
   const allTodos = await db.todos.reverse().toArray();
-  list_el.innerHTML = allTodos
+  list_el.innerHTML = "<table>"+
+  `
+      <tr>
+    <td>datum</td>
+    <td>cas</td>
+    <td>cinnost</td>
+    <td>osoby</td>
+    <td>emoce</td>
+    <td>nalada</td>
+    <td>myslenky</td>
+    <td>telo</td>
+    <td> </td>
+    </tr>`+
+  
+  allTodos
   .map(
     (todo) => `
-    
-    <div class="task">
-    <div class="content">
-    // Cítil jsem se ${todo.timev} ${todo.taskv} ${todo.withv}}..
-    // Cítil jsem se ${todo.emocev} ${todo.ratingv} ${todo.thoughtsv}}..
-    </div>
-    <div class="content2">
-    ${todo.todo}
-    </div>
+    <tr>
+    <td>${todo.today}</td>
+    <td>${todo.timev}</td>
+    <td>${todo.taskv}</td>
+    <td>${todo.withv}</td>
+    <td>${todo.emocev}</td>
+    <td>${todo.ratingv}</td>
+    <td>${todo.thoughtsv}</td>
+    <td>${todo.bodyfeelv}</td>
+    <td> 
     <div class="actions">
     <button class="delete" onclick="deleteTodo(${todo.id})">Vymaž záznam</button>
-    </div>
-    </div>
+    </div></td>
+    </tr>
     `
     )
-    .join("");
+    .join("")+"</table>";
   };
   window.onload = getTodos;
   
