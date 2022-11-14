@@ -10,7 +10,7 @@
       // Use the window load event to keep the page load performant
       
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js");
+        navigator.serviceWorker.register("./sw.js?v="+Date.now());
       });
     }
   </script>
@@ -51,7 +51,7 @@
 -->
 
 <body>
-  <h1>Záznamníkaaaaaaaa</h1>
+  <h1>Záznamník</h1>
   <!-- <button class="add-button">Instaluj?</button> -->
   <form id="new-task-form">
     V
@@ -59,7 +59,7 @@
     jsem 
     <input type="text" name="task" id="task" placeholder="činnost" />
     s
-    <input type="text" name="with" id="with" placeholder="nikým" />
+    <input type="text" name="with" id="with" placeholder="nikým" value="" />
     <fieldset id="emoce">
       <legend> a cítil/a u toho</legend>
       
@@ -105,7 +105,7 @@
         <label for="Naději">Naději</label>
       </div>
       <div>
-        <input type="text" id="emoce"  name="Emoce" value="">
+        <input type="text" id="jine"  name="jine" value="">
         <label for="Naději">Něco jiného</label>
       </div>
       
@@ -123,7 +123,7 @@
         <label class="half" for="star3half" title="Meh - 3.5 stars"></label>
         <input type="radio" id="star3" name="rating" value="3" />
         <label class = "full" for="star3" title="Meh - 3 stars"></label>
-        <input type="radio" id="star2half" name="rating" value="2.5" />
+        <input type="radio" id="star2half" name="rating" value="2.5" checked />
         <label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
         <input type="radio" id="star2" name="rating" value="2" />
         <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>

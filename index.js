@@ -1,7 +1,7 @@
 
 
 const db = new Dexie("Todo App");
-db.version(1).stores({ todos: "++id, today, time, task, with, emotions, rating, thoughts, body" });
+db.version(1).stores({ todos: "++id, today, time, task, with, emotions,jine, rating, thoughts, body" });
 
 const form = document.querySelector("#new-task-form");
 
@@ -12,6 +12,7 @@ const emoce = document.querySelector("#emoce");
 const rating = document.querySelector("#rating");
 const thoughts = document.querySelector("#thoughts");
 const bodyfeel = document.querySelector("#bodyfeel");
+const jine = document.querySelector("#jine");
 
 
 
@@ -28,6 +29,7 @@ form.onsubmit = async (event) => {
   const withhv = withh.value;
   const thoughtsv = thoughts.value;
   const bodyfeelv = bodyfeel.value;
+  const jinev = jine.value;
   
   // const emocev = emoce.value;
   // const ratingv = rating.value;
@@ -36,10 +38,11 @@ form.onsubmit = async (event) => {
   let emocev = ""
   emoc.forEach((v) => {
     if(v.checked) {
-      emocev += " "+v.value
+      emocev += v.value+"<br> "
     }
     
   });
+  emocev+=jinev
   
   const ratingv = document.querySelector("input[type=radio]:checked").value;
   
@@ -76,9 +79,9 @@ const getTodos = async () => {
     <td>${todo.today}</td>
     <td>${todo.timev}</td>
     <td>${todo.taskv}</td>
-    <td>${todo.withv}</td>
+    <td>${todo.withhv}</td>
     <td>${todo.emocev}</td>
-    <td>${todo.ratingv}</td>
+    <td>${todo.ratingv}/5</td>
     <td>${todo.thoughtsv}</td>
     <td>${todo.bodyfeelv}</td>
     <td> 
